@@ -44,7 +44,7 @@ struct ContentView: View {
                     
                     
                 }
-                .background(Color.cyan)
+                .background(LinearGradient(colors: [Color.blue.opacity(0.7), Color.purple], startPoint: .leading, endPoint: .trailing))
                 .cornerRadius(30)
                 .padding()
                 .offset(y: 10)
@@ -84,7 +84,7 @@ struct ContentView: View {
                     .font(.title2.bold())
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(Color.blue)
+                    .background(Color.yellow)
                     .foregroundColor(Color(.white))
                     .cornerRadius(30)
                     .padding(.bottom, 5)
