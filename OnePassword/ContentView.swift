@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var passwordManager: PasswordManager
-   
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
@@ -23,14 +23,14 @@ struct ContentView: View {
                 
                     
                         .overlay(alignment: .leading) {
-                            Text("Password lenght : ")
+                            Text("Password lenght :  \(passwordManager.length)")
                                 .font(.title2.bold())
                                 .foregroundColor(Color.white)
                                 .offset(x: 20)
-                            Text("\(passwordManager.length)")
-                                .font(.title2.bold())
-                                .foregroundStyle(Color.white)
-                                .offset(x: 130)
+//                            Text("\(passwordManager.length)")
+//                                .font(.title2.bold())
+//                                .foregroundStyle(Color.white)
+//                                .offset(x: 130)
                         }
                     
                 }
@@ -44,7 +44,7 @@ struct ContentView: View {
                     
                     
                 }
-                .background(LinearGradient(colors: [Color.blue.opacity(0.7), Color.purple], startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(colors: [Color.pink.opacity(0.7), Color.purple], startPoint: .leading, endPoint: .trailing))
                 .cornerRadius(30)
                 .padding()
                 .offset(y: 10)
@@ -61,10 +61,10 @@ struct ContentView: View {
                     
                 } label: {
                     Image(systemName: "bolt.fill")
-                        .foregroundColor(Color.white)
-                    Text("Generate password")
-                        .font(.title2.bold())
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color(UIColor.white))
+                    Text(passwordManager.isPasswordCopied ? "Password is copied": "Generate password")
+                        .font(passwordManager.isPasswordCopied ? .system(size: 23, weight: .bold, design: .monospaced) : .title2.bold())
+                        .foregroundColor(passwordManager.isPasswordCopied ? Color(.purple) : Color.white)
                     
                     
                 }
@@ -79,19 +79,15 @@ struct ContentView: View {
                 
             }
             
-            if passwordManager.isPasswordCopied == true {
-                Text("Password is copied")
-                    .font(.title2.bold())
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color.yellow)
-                    .foregroundColor(Color(.white))
-                    .cornerRadius(30)
-                    .padding(.bottom, 5)
-                    .padding([.leading, .trailing])
-                Spacer()
-                
-            }
+//            if passwordManager.isPasswordCopied == true {
+//                Text("Password is copied")
+//                    .font(.system(size: 25, weight: .bold, design: .monospaced))
+//                    .foregroundColor(Color(.purple))
+//                    .padding(.bottom, 40)
+//                    .padding([.leading, .trailing])
+//                Spacer()
+//
+//            }
             
         }
         

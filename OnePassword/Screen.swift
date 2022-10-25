@@ -19,7 +19,7 @@ struct Screen: View {
                 .foregroundStyle(LinearGradient(colors: [.pink, .purple, .blue], startPoint: .leading, endPoint: .trailing))
                 .padding(.leading)
                 .padding(.top, 10)
-                .offset(x: -4, y: 10)
+                .offset(x: -3, y: 10)
             
             
             Text("random password")
